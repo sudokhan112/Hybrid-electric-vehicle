@@ -64,3 +64,16 @@ Consider the following charge/discharge cycles.
 * For SOC between 0.2 and 1, the variation in open-circuit will be between 3.6 V and 4.2 V. With 80 cells in series, the variation in open-circuit battery (Voc) voltage will be between 288 V and 336 V. However, the cell “terminal” voltage during charge or discharge (Vbattery in Fig 7-10) will be different due to the voltage drops across R0 and R1. The range in cell (hence battery) terminal voltage will be substantially greater than range in “open-circuit” voltage. Vcell = Voc – VR0 -VC1. But, we are within manufacturer-supplied limits in all charge/discharge cycles considered except for case-4.
 
 **[Download code and detailed report](https://github.com/sudokhan112/Hybrid-electric-vehicle/tree/main/Battery-model-charge-discharge)**
+
+
+### Intake mnifold diagnostic
+
+Design and implement (in SIMULINK) a manifold air intake diagnostics system for a 4 cylinder engine with an electronic throttle control (ETC) system. Assume that the ETC system has a DC servo control system that uses a PID controller. The closed loop servo response must meet the following requirements: omega = 25 rad/sec and zeta = 0.45. The DC servo open loop poles are at (0,-6) and DC gain of 1. Consider the faults in the Mass Air Flow (MAF) sensor, Manifold Air Pressure (MAP) sensor, Throttle Angle Position (TAS) sensor, and the Throttle Actuator (control input). Assume that the
+additive faults are as follows: A pulse starting after 10 seconds and lasts for 20 seconds at which
+time the pulse is set to zero again. The amplitude of the pulse should be 10% of the signal for all
+cases except for throttle actuator fault where 20% pulse amplitude is used.
+
+**[Download code and detailed report](https://github.com/sudokhan112/Hybrid-electric-vehicle/tree/main/manifold-air-intake-diagnostics-system)**
+
+
+
