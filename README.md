@@ -36,4 +36,31 @@ The general control strategy is as follows. For a given vehicle speed, and a des
 
 **[Download code and detailed report](https://github.com/sudokhan112/Hybrid-electric-vehicle/tree/main/prius-acceleration)**
 
+### Permanent-magnet ac motor drive
+The objective of the project is to develop a Simulink-based semi-detailed simulation of a permanent-magnet ac motor drive that utilizes a sine-triangle modulator with third-harmonic injection. We need to observe how the model response to develop 100 Nm of torque at 3000 rpm (mechanical). Then repeat the process for -100 Nm torque development at 3000 rpm.
 
+**Conclusions**
+* Simulation results showed acceptable ranges in PMACM outputs. Some losses (eddy current, hysteresis) are not modeled. But model outputs are within range.
+* Dissecting the voltage and current plots from the simulation helped to grow intuitions about this machine. Some efficiency analysis may have been helpful to get real world outputs.
+* The simulation results showed that we can control the Torque near instantly if we don’t ask for too much.
+* The changes in torque and output values in this project also validated our assumption that, changes in electrical system is instantaneous and losses are negligible.
+
+**[Download code and detailed report](https://github.com/sudokhan112/Hybrid-electric-vehicle/tree/main/AC-motor)**
+
+### Battery model charge-discharge
+
+We will examine several charge-discharge cycles to examine the effects on losses and round-trip efficiency. To achieve these goals, you are to develop a Simulink battery model that accepts Ibatt versus time as an input and outputs battery terminal voltage. The current will be used to determine the state of charge (SOC) of the battery using the Coulomb-counting method.
+Consider the following charge/discharge cycles.
+* The battery starts at SOCinit = 0:2. It is charged at a C-rate of 0.2 to SOC = 1:0. Then, it is discharged at a C-rate of 0.2 to SOC = 0:2. (slow charge and discharge).
+* The battery starts at SOCinit = 0:2. It is charged at a C-rate of 2 to SOCmax = 1:0. Then, it is discharged at C-rate = 0.2 to SOCfinal = 0:2. (fast charge, slow discharge).
+* The battery starts at SOCinit = 0:2. It is charged at a C-rate of 2.0 to SOC = 1:0. Then, it is discharged at C-rate = 2.0 to SOCfinal = 0:2. (fast charge, fast discharge).
+* The battery starts at SOCinit = 0:5. It is charged at a C-rate of 5.0 to SOCmax = 0:6. Then, it is discharged at C-rate = 5.0 to SOCfinal = 0:5. (fast charge, fast discharge, relatively short-term storage).
+
+**Conclusions**
+* Slow charge-discharge (case-1) has the highest efficiency. Fast-charge-discharge (case-3) has the lower efficiency. Ridiculous fast charge-discharge (case-4) has lowest efficiency. Which shows slow charge-discharge is good for battery health and performance (if we need longer range from EV).
+* Increasing charge-rate increases the current flow through battery. This increases the energy loss and decreases efficiency.
+* Battery is drawing more power during charge cycle (higher negative value) than delivering during discharge cycle (lower positive value). Remaining power (or energy) is lost through Ro and R1 (P = I2R). Higher the amount of current, higher the loss. Case-4 has the highest amount of net losses compared to net energy delivered.
+* Ibattery during charge and Ibattery during discharge remains constant. During charge, as SOC goes towards 1, Vbattery increases . Maximum, Vbattery and Pbattery (power needed to charge) at SOC = 1. This indicated, may be fully charging the battery is not always a good idea. Charging upto 90- 95% SOC is better in terms of power consumption and battery health. But round-trip efficiency goes down if we charge upto SOC 0.95 instead of 1. So, there is a tradeoff.
+* For SOC between 0.2 and 1, the variation in open-circuit will be between 3.6 V and 4.2 V. With 80 cells in series, the variation in open-circuit battery (Voc) voltage will be between 288 V and 336 V. However, the cell “terminal” voltage during charge or discharge (Vbattery in Fig 7-10) will be different due to the voltage drops across R0 and R1. The range in cell (hence battery) terminal voltage will be substantially greater than range in “open-circuit” voltage. Vcell = Voc – VR0 -VC1. But, we are within manufacturer-supplied limits in all charge/discharge cycles considered except for case-4.
+
+**[Download code and detailed report](https://github.com/sudokhan112/Hybrid-electric-vehicle/tree/main/Battery-model-charge-discharge)**
