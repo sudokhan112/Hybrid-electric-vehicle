@@ -4,7 +4,7 @@ This repository contains simulation and modeling works related to hybrid electri
 
 <img src="https://github.com/sudokhan112/Hybrid-electric-vehicle/blob/main/admin.png" width="600" height="400">
 
-### 1. Analysis of Mild Parallel Hybrid Electric Vehicle
+### Analysis of Mild Parallel Hybrid Electric Vehicle
 
 The primary objective of the first project is to analyze the performance of a mild parallel hybrid gas/electric vehicle. In this vehicle, an electric machine is to propel the vehicle at low speeds with the main engine disengaged. The electric machine is also used as a boost motor to improve high-speed accelerating characteristics. This permits a smaller internal combustion engine to be used without sacrificing overall performance. A block diagram of the vehicle is depicted here.
 
@@ -23,7 +23,7 @@ The primary objective of the first project is to analyze the performance of a mi
 **[Download code and detailed report](https://github.com/sudokhan112/Hybrid-electric-vehicle/tree/main/mild-hev)**
 
 
-### 2. Acceleration of Toyota Prius
+### Acceleration of Toyota Prius
 
 The objective is to accelerate the vehicle as rapidly as possible without violating any physical constraints (e.g. maximum motor, generator, or engine speeds and torques, |Pbatt| < |Pbattmax| etc.).
 
